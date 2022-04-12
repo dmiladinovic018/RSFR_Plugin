@@ -1,11 +1,11 @@
 {
-  "name": "bettercollective/wp-plugin-boiler-plate",
+  "name": "bettercollective/wp-plugin-rsfr",
   "description": "",
   "minimum-stability": "stable",
   "license": "proprietary",
   "authors": [
     {
-      "name": "Better Collective A/S",
+      "name": "BC RSFR Team",
       "email": "plugins@bettercollective.com"
     }
   ],
@@ -24,8 +24,8 @@
   },
   "autoload": {
     "psr-4": {
-      "BetterCollective\\WpPlugins\\BoilerPlate\\": "src/",
-      "BetterCollective\\WpPlugins\\BoilerPlateTest\\": "tests/"
+      "BetterCollective\\WpPlugins\\RsfrPlate\\": "src/",
+      "BetterCollective\\WpPlugins\\RsfrPlateTest\\": "tests/"
     }
   }
 }

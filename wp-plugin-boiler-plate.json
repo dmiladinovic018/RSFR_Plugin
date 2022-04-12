@@ -1,10 +1,10 @@
 {
-  "name" : "BC Plugin Boiler Plate",
-  "slug" : "bc-plugin-boiler-plate",
-  "download_url" : "http://plugins.bettercollective.rocks/wp-plugin-boiler-plate/wp-plugin-boiler-plate.zip",
+  "name" : "BC Plugin Rsfr Plate",
+  "slug" : "bc-plugin-rsfr-plate",
+  "download_url" : "http://plugins.bettercollective.rocks/wp-plugin-rsfr/wp-plugin-rsfr.zip",
   "version" : "1.0.0",
-  "author" : "Better Collective A/S",
+  "author" : "BC RSFR Team",
   "sections" : {
-    "description" : "Plugin Boiler Plate"
+    "description" : "Plugin Rsfr Plate"
   }
 }

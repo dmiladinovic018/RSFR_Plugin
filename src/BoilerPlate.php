@@ -1,18 +1,18 @@
 <?php
 
-namespace BetterCollective\WpPlugins\BoilerPlate;
+namespace BetterCollective\WpPlugins\RsfrPlate;
 
-use BetterCollective\WpPlugins\BoilerPlate\Traits\SingletonTrait;
+use BetterCollective\WpPlugins\RsfrPlate\Traits\SingletonTrait;
 
 /**
- * Class BoilerPlate
+ * Class RsfrPlate
  */
-class BoilerPlate
+class RsfrPlate
 {
     use SingletonTrait;
 
     /**
-     * BoilerPlate constructor.
+     * RsfrPlate constructor.
      */
     private function __construct()
     {
