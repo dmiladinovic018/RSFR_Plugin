@@ -1,0 +1,33 @@
+{
+  "plugins": [
+    "stylelint-selector-bem-pattern"
+  ],
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-recommended-scss"
+  ],
+  "rules": {
+    "indentation": 2,
+    "no-empty-source": true,
+    "no-descending-specificity": null,
+    "number-leading-zero": "never",
+    "font-family-no-missing-generic-family-keyword": null,
+    "unit-no-unknown": true,
+    "string-no-newline": true,
+    "property-no-unknown": true,
+    "declaration-block-no-duplicate-properties": true,
+    "block-no-empty": true,
+    "no-duplicate-at-import-rules": true,
+    "no-duplicate-selectors": true,
+    "no-invalid-double-slash-comments": true,
+    "plugin/selector-bem-pattern": {
+      "preset": "bem",
+      "componentName": "/^[A-Z]+$/",
+      "componentSelectors": {
+        "initial": "^\\.{componentName}(?:-[a-z]+)?$",
+        "combined": "^\\.combined-{componentName}-[a-z]+$"
+      },
+      "utilitySelectors": "^\\.util-[a-z]+$"
+    }
+  }
+}

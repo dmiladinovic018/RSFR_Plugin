@@ -1,0 +1,30 @@
+# Composer
+composer.phar
+vendor
+
+# tracking DIR
+/myreport
+/log
+metrics
+
+# Mac file
+.DS_Store
+
+# Build DIR
+build
+
+# Dependency directories
+node_modules/
+node_modules/*
+
+# Dependency files
+package-lock.json
+composer.lock
+
+# dotenv environment variables file
+.env
+.env.develop
+.env.production
+
+# Deployment package
+# wp-plugin-boiler-plate.zip
