@@ -26,9 +26,10 @@ class RSFREndpoint
     }
 
     public function loadAdminSettings(){
-        if(is_admin()){
+        // TODO uncomment when set transient f-on moved to helper class
+//        if(is_admin()){
             new RSFREndpointSettings();
-        }
+//        }
     }
 
 }
