@@ -1,5 +1,5 @@
 {
-  "name": "bettercollective/wp-plugin-boiler-plate",
+  "name": "bettercollective/rsfr-endpoint",
   "description": "",
   "minimum-stability": "stable",
   "license": "proprietary",
@@ -24,8 +24,7 @@
   },
   "autoload": {
     "psr-4": {
-      "BetterCollective\\WpPlugins\\BoilerPlate\\": "src/",
-      "BetterCollective\\WpPlugins\\BoilerPlateTest\\": "tests/"
+      "RSFREndpoint\\": "src/"
     }
   }
 }

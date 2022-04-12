@@ -11,7 +11,6 @@
  */
 
 use RSFREndpoint\RSFREndpoint;
-use RSFREndpoint\Services\UpdateChecker;
 
 if (! defined('ABSPATH')) {
     die;
@@ -26,10 +25,6 @@ define('RSFR_ENDPOINT_URL', \plugin_dir_url(__FILE__));
 define('RSFR_ENDPOINT_FILE', __FILE__);
 
 try {
-    $dotenv = new \Dotenv\Dotenv(__DIR__);
-    $dotenv->load();
-    define('RSFR_ENDPOINT_IS_DEV_ENV', getenv('ENV') === 'develop');
-    new UpdateChecker();
     RSFREndpoint::getInstance();
 } catch (\Exception $exception) {
     $message = $exception->getMessage();
