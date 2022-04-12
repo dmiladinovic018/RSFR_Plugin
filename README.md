@@ -16,16 +16,16 @@ IN ROOT DIR
 
 In wp-plugin-rsfr.json  
 ```shell
- "name" : "BC Plugin Rsfr Plate",  
+ "name" : "BC Plugin Rsfr",  
  "slug" : "bc-plugin-rsfr-plate",  
  "download_url" : "http://plugins.bettercollective.rocks/wp-plugin-rsfr/wp-plugin-rsfr.zip"  
- "description" : "Plugin Rsfr Plate"
+ "description" : "Plugin Rsfr"
 ```  
 
 
 In plugin-rsfr-plate.php  
 ```shell
- Plugin Name: BC Plugin Rsfr Plate  
+ Plugin Name: BC Plugin Rsfr  
  Description: BC WP Plugin for showing WP content on non WP sites.  
  
  define('BC_RSFR_VERSION', '1.0.0');  
@@ -34,22 +34,22 @@ In plugin-rsfr-plate.php
  define('BC_RSFR_URL', \plugin_dir_url(__FILE__));  
  define('BC_RSFR_FILE', __FILE__);  
  define('BC_RSFR_IS_DEV_ENV', __FILE__);  
- RsfrPlate::getInstance();
+ Rsfr::getInstance();
 ```  
     
 
 In /src DIR  
 ```shell
-src/RsfrPlate.php  
-replace RsfrPlate in namespaces
+src/Rsfr.php  
+replace Rsfr in namespaces
 ```  
   
 
 In composer.json  
 ```shell
 "name": "bettercollective/wp-plugin-rsfr", 
-"BetterCollective\\WpPlugins\\RsfrPlate\\" : "src/",  
-"BetterCollective\\WpPlugins\\RsfrPlateTest\\" : "tests/"
+"BetterCollective\\WpPlugins\\Rsfr\\" : "src/",  
+"BetterCollective\\WpPlugins\\RsfrTest\\" : "tests/"
 ```  
 
 In Gruntfile.js  

@@ -1,6 +1,6 @@
 <?php
 
-namespace BetterCollective\WpPlugins\RsfrPlate\Traits;
+namespace BetterCollective\WpPlugins\Rsfr\Traits;
 
 trait SingletonTrait
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace BetterCollective\WpPlugins\RsfrPlate\Config;
+namespace BetterCollective\WpPlugins\Rsfr\Config;
 
 /**
  * Class Config

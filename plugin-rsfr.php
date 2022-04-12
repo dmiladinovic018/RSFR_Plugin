@@ -1,14 +1,14 @@
 <?php
 
 /**
- * Plugin Name: BC Plugin Rsfr Plate
+ * Plugin Name: BC Plugin Rsfr
  * Description: BC WP Plugin for showing WP content on non WP sites.
  * Version:     1.0.0
  * Author:      BC RSFR Team
  */
 
-use BetterCollective\WpPlugins\RsfrPlate\RsfrPlate;
-use BetterCollective\WpPlugins\RsfrPlate\Services\UpdateChecker;
+use BetterCollective\WpPlugins\Rsfr\Rsfr;
+use BetterCollective\WpPlugins\Rsfr\Services\UpdateChecker;
 
 if (! defined('ABSPATH')) {
     die;
@@ -23,11 +23,7 @@ define('BC_RSFR_URL', \plugin_dir_url(__FILE__));
 define('BC_RSFR_FILE', __FILE__);
 
 try {
-    $dotenv = new \Dotenv\Dotenv(__DIR__);
-    $dotenv->load();
-    define('BC_RSFR_IS_DEV_ENV', getenv('ENV') === 'develop');
-    new UpdateChecker();
-    RsfrPlate::getInstance();
+    Rsfr::getInstance();
 } catch (\Exception $exception) {
     $message = $exception->getMessage();
     \add_action('admin_notices', function () use ($message) {

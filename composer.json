@@ -24,8 +24,8 @@
   },
   "autoload": {
     "psr-4": {
-      "BetterCollective\\WpPlugins\\RsfrPlate\\": "src/",
-      "BetterCollective\\WpPlugins\\RsfrPlateTest\\": "tests/"
+      "BetterCollective\\WpPlugins\\Rsfr\\": "src/",
+      "BetterCollective\\WpPlugins\\RsfrTest\\": "tests/"
     }
   }
 }
