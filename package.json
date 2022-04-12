@@ -1,11 +1,11 @@
 {
-  "name": "plugin-bc-boiler-plate",
+  "name": "plugin-bc-rsfr",
   "version": "1.0.0",
   "private": true,
-  "author": "Better Collective A/S",
+  "author": "BC RSFR Team",
   "repository": {
     "type": "git",
-    "url": "git@github.com:BetterCollective/plugin-boiler-plate.git"
+    "url": "git@github.com:BetterCollective/plugin-rsfr-plate.git"
   },
   "scripts": {
     "grunt": "grunt",

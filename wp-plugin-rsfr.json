@@ -1,0 +1,10 @@
+{
+  "name" : "BC Plugin Rsfr",
+  "slug" : "bc-plugin-rsfr-plate",
+  "download_url" : "http://plugins.bettercollective.rocks/wp-plugin-rsfr/wp-plugin-rsfr.zip",
+  "version" : "1.0.0",
+  "author" : "BC RSFR Team",
+  "sections" : {
+    "description" : "Plugin Rsfr"
+  }
+}
