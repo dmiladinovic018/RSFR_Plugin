@@ -3,18 +3,20 @@
 namespace RSFREndpoint;
 
 use RSFREndpoint\Traits\SingletonTrait;
+use RSFREndpoint\Controllers\RestController;
 
-/**
- * Class BoilerPlate
- */
 class RSFREndpoint
 {
     use SingletonTrait;
 
-    /**
-     * BoilerPlate constructor.
-     */
-    private function __construct()
+    public function __construct()
     {
+        $this->setLoaders();
     }
+
+    public function setLoaders()
+    {
+        RestController::getInstance();
+    }
+
 }
