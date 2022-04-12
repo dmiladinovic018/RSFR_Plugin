@@ -1,6 +1,6 @@
 <?php
 
-namespace BetterCollective\WpPlugins\BoilerPlate\Config;
+namespace RSFREndpoint\Config;
 
 /**
  * Class Config

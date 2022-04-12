@@ -1,6 +1,6 @@
 <?php
 
-namespace BetterCollective\WpPlugins\BoilerPlate\Services;
+namespace RSFREndpoint\Services;
 
 use Puc_v4_Factory;
 
@@ -16,8 +16,8 @@ class UpdateChecker
     {
         Puc_v4_Factory::buildUpdateChecker(
             getenv('PLUGIN_JSON_URL'),
-            BC_PLUGIN_BOILER_PLATE_DIR . "/plugin-boiler-plate.php",
-            BC_PLUGIN_BOILER_PLATE_SLUG
+            RSFR_ENDPOINT_DIR . "/plugin-boiler-plate.php",
+            RSFR_ENDPOINT_SLUG
         );
     }
 }

@@ -1,13 +1,13 @@
 <?php
 
-namespace BetterCollective\WpPlugins\BoilerPlate;
+namespace RSFREndpoint;
 
-use BetterCollective\WpPlugins\BoilerPlate\Traits\SingletonTrait;
+use RSFREndpoint\Traits\SingletonTrait;
 
 /**
  * Class BoilerPlate
  */
-class BoilerPlate
+class RSFREndpoint
 {
     use SingletonTrait;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace BetterCollective\WpPlugins\BoilerPlate\Traits;
+namespace RSFREndpoint\Traits;
 
 trait SingletonTrait
 {
