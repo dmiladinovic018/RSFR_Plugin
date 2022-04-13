@@ -4,6 +4,7 @@ namespace RSFREndpoint\Controllers;
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
 use RSFREndpoint\Traits\SingletonTrait;
+use WP_Query;
 
 class RestController
 {
@@ -32,6 +33,12 @@ class RestController
                 'callback' => array($this, 'getJS'),
                 'permission_callback' => '__return_true',
             ));
+
+            register_rest_route($this->routeNameSpace, '/routes', array(
+                'methods' => 'GET',
+                'callback' => array($this, 'RSFRGetRoutes'),
+                'permission_callback' => '__return_true',
+            ));
         });
     }
 
@@ -47,5 +54,38 @@ class RestController
 
         $response = json_encode(get_transient('rsfr_endpoint_enqueued_scripts'));
         return new \WP_REST_Response(array('js' => $response), 200);
+    }
+
+    public function RSFRGetRoutes()
+    {
+        $filePath = wp_upload_dir()['basedir'] . '/rsfrRoutes.json';
+        if (file_exists($filePath)) {
+            return file_get_contents($filePath);
+        }
+
+        $routes = [];
+        $query = new WP_Query([
+            'post_type' => 'any',
+            'posts_per_page' => -1
+        ]);
+
+        if ($query->have_posts()) {
+            while ($query->have_posts()) {
+                $query->the_post();
+                $routes[] = [
+                    'route' => wp_make_link_relative(get_permalink()),
+                    'id' => get_the_ID(),
+                    'type' => get_post_type()
+                ];
+            }
+        }
+
+        $routes = json_encode($routes);
+
+        $rsfrRoutes = fopen($filePath, 'w');
+        fwrite($rsfrRoutes, $routes);
+        fclose($rsfrRoutes);
+
+        return $routes;
     }
 }
