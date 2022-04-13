@@ -1,35 +1,25 @@
 <?php
 
-namespace RSFREndpoint\Admin;
+namespace RSFREndpoint\Controllers;
 
 if (!defined('ABSPATH')) {
     die;
 }
 
-class RSFREndpointSettings
+use RSFREndpoint\Traits\SingletonTrait;
+
+class TransientsController
 {
-    public function __construct()
+    use SingletonTrait;
+
+    private function __construct()
     {
-        add_action('admin_menu', [$this, 'addRSFREndpointAdminMenu'], 9);
         add_action('wp_head', [$this, 'getAndStoreAllEnqueuedStyles'], 99);
+        add_action('wp_head', [$this, 'getAndStoreAllEnqueuedScripts'], 99);
+        add_action('after_switch_theme ', [$this, 'deleteRSFRTransients']);
+        add_action('update_option_active_plugins',[$this, 'deleteRSFRTransients']);
     }
 
-    public function addRSFREndpointAdminMenu()
-    {
-        add_menu_page('RSFR Endpoint',
-            'RSFR Endpoint',
-            'administrator', 'rsfr-endpoint',
-            array($this, 'displayRSFRAdminDashboard'),
-            'dashicons-chart-area',
-            99);
-    }
-
-    public function displayRSFRAdminDashboard()
-    {
-        require_once RSFR_ENDPOINT_DIR . '/views/admin/rsfr-endpoint-settings-page.php';
-    }
-
-// TODO move to helper, this class load to admin only
     public function getAndStoreAllEnqueuedStyles()
     {
         if (empty(get_transient('rsfr_endpoint_enqueued_styles'))) {
@@ -42,6 +32,10 @@ class RSFREndpointSettings
             $registeredStyles = array_combine($keys, $values);
             set_transient('rsfr_endpoint_enqueued_styles', $registeredStyles, 6 * HOUR_IN_SECONDS);
         }
+    }
+
+    public function getAndStoreAllEnqueuedScripts()
+    {
         if (empty(get_transient('rsfr_endpoint_enqueued_scripts'))) {
             global $wp_scripts;
             $keys = $wp_scripts->queue;
@@ -52,5 +46,11 @@ class RSFREndpointSettings
             $registeredScripts = array_combine($keys, $values);
             set_transient('rsfr_endpoint_enqueued_scripts', $registeredScripts, 6 * HOUR_IN_SECONDS);
         }
+    }
+
+    public function deleteRSFRTransients()
+    {
+        delete_transient('rsfr_endpoint_enqueued_styles');
+        delete_transient('rsfr_endpoint_enqueued_scripts');
     }
 }

@@ -38,15 +38,14 @@ class RestController
     public function getCSS()
     {
 
-        $response = 'dummy text css';
+        $response = json_encode(get_transient('rsfr_endpoint_enqueued_styles'));
         return new \WP_REST_Response(array('css' => $response), 200);
     }
 
     public function getJS()
     {
 
-        $response = 'dummy text js';
+        $response = json_encode(get_transient('rsfr_endpoint_enqueued_scripts'));
         return new \WP_REST_Response(array('js' => $response), 200);
     }
-
 }

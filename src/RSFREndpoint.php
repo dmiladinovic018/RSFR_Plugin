@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) {
 
 use RSFREndpoint\Traits\SingletonTrait;
 use RSFREndpoint\Controllers\RestController;
-use RSFREndpoint\Admin\RSFREndpointSettings;
+use RSFREndpoint\Controllers\TransientsController;
 
 class RSFREndpoint
 {
@@ -17,19 +17,11 @@ class RSFREndpoint
     public function __construct()
     {
         $this->setLoaders();
-        $this->loadAdminSettings();
     }
 
     public function setLoaders()
     {
         RestController::getInstance();
+        TransientsController::getInstance();
     }
-
-    public function loadAdminSettings(){
-        // TODO uncomment when set transient f-on moved to helper class
-//        if(is_admin()){
-            new RSFREndpointSettings();
-//        }
-    }
-
 }
