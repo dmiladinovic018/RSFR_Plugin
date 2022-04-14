@@ -2,6 +2,7 @@
 
 namespace RSFREndpoint\Controllers;
 
+use RSFREndpoint\Config\Config;
 use RSFREndpoint\Traits\SingletonTrait;
 use WP_Query;
 
@@ -64,7 +65,7 @@ class RestController
      */
     public function getCSS()
     {
-        $response = json_encode(get_transient('rsfr_endpoint_enqueued_styles'));
+        $response = json_encode(get_transient(Config::RSFR_TRANSIENT_STYLES));
         return new \WP_REST_Response(['css' => $response], 200);
     }
 
@@ -73,7 +74,7 @@ class RestController
      */
     public function getJS()
     {
-        $response = json_encode(get_transient('rsfr_endpoint_enqueued_scripts'));
+        $response = json_encode(get_transient(Config::RSFR_TRANSIENT_SCRIPTS));
         return new \WP_REST_Response(['js' => $response], 200);
     }
 
@@ -122,7 +123,7 @@ class RestController
      */
     public function getPrimaryMenu()
     {
-        $response = json_encode(get_transient('rsfr_endpoint_enqueued_scripts'));
-        return new \WP_REST_Response(['js' => $response], 200);
+        $response = json_encode(get_transient(Config::RSFR_TRANSIENT_MENU));
+        return new \WP_REST_Response(['menu' => $response], 200);
     }
 }
