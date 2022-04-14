@@ -7,7 +7,8 @@ namespace RSFREndpoint\Config;
  */
 class Config
 {
-    /** Default Settings */
-    // Here add const variable. Example.
-    const VARIABLE_NAME = 'SOME_VALUE';
+    const RSFR_TRANSIENT_STYLES = 'rsfr_endpoint_enqueued_styles';
+    const RSFR_TRANSIENT_SCRIPTS = 'rsfr_endpoint_enqueued_scripts';
+    const RSFR_TRANSIENT_MENU = 'rsfr_endpoint_primary_menu';
+    const RSFR_TRANSIENT_DEFAULT_EXPIRE = 6 * HOUR_IN_SECONDS;
 }
