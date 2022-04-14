@@ -5,6 +5,7 @@ namespace RSFREndpoint;
 use RSFREndpoint\Traits\SingletonTrait;
 use RSFREndpoint\Controllers\RestController;
 use RSFREndpoint\Controllers\TransientsController;
+use RSFREndpoint\Controllers\HookController;
 
 /**
  * RSFREndpoint class
@@ -28,5 +29,6 @@ class RSFREndpoint
     {
         RestController::getInstance();
         TransientsController::getInstance();
+        HookController::getInstance();
     }
 }
