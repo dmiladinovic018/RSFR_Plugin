@@ -59,20 +59,23 @@ class RestController
     public function RSFRGetRoutes()
     {
         $filePath = wp_upload_dir()['basedir'] . '/rsfrRoutes.json';
-        if (file_exists($filePath)) {
+        if (file_exists($filePath) && (time() - json_decode(file_get_contents($filePath))->createdAt) < 6*60*60) {
             return file_get_contents($filePath);
         }
 
-        $routes = [];
+        $contents = [
+            'routes' => []
+        ];
+
         $query = new WP_Query([
-            'post_type' => 'any',
-            'posts_per_page' => -1
+        'post_type' => 'any',
+        'posts_per_page' => -1
         ]);
 
         if ($query->have_posts()) {
             while ($query->have_posts()) {
                 $query->the_post();
-                $routes[] = [
+                $contents['routes'][] = [
                     'route' => wp_make_link_relative(get_permalink()),
                     'id' => get_the_ID(),
                     'type' => get_post_type()
@@ -80,12 +83,13 @@ class RestController
             }
         }
 
-        $routes = json_encode($routes);
+    	$contents['createdAt'] = time();
+    	$contents = json_encode($contents);
 
         $rsfrRoutes = fopen($filePath, 'w');
-        fwrite($rsfrRoutes, $routes);
+        fwrite($rsfrRoutes, $contents);
         fclose($rsfrRoutes);
 
-        return $routes;
+        return $contents;
     }
 }
