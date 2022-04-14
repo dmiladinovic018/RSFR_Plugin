@@ -9,6 +9,7 @@ if (!defined('ABSPATH')) {
 use RSFREndpoint\Traits\SingletonTrait;
 use RSFREndpoint\Controllers\RestController;
 use RSFREndpoint\Controllers\TransientsController;
+use RSFREndpoint\Controllers\HookController;
 
 class RSFREndpoint
 {
@@ -23,5 +24,6 @@ class RSFREndpoint
     {
         RestController::getInstance();
         TransientsController::getInstance();
+        HookController::getInstance();
     }
 }
