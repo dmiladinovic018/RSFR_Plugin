@@ -122,7 +122,7 @@ class RestController
      */
     public function getPrimaryMenu()
     {
-        $response = json_encode(get_transient('rsfr_endpoint_enqueued_scripts'));
-        return new \WP_REST_Response(['js' => $response], 200);
+        $response = json_encode(get_transient('rsfr_endpoint_primary_menu'));
+        return new \WP_REST_Response(['menu' => $response], 200);
     }
 }
