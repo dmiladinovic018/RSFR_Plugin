@@ -65,7 +65,7 @@ class RestController
      */
     public function getCSS()
     {
-        $response = json_encode(self::getAndOrSetRSFRTransient());
+        $response = json_encode(self::getAndOrSetRSFRTransient(Config::RSFR_TRANSIENT_STYLES));
         return new \WP_REST_Response(['css' => $response], 200);
     }
 
@@ -74,7 +74,7 @@ class RestController
      */
     public function getJS()
     {
-        $response = json_encode(self::getAndOrSetRSFRTransient());
+        $response = json_encode(self::getAndOrSetRSFRTransient(Config::RSFR_TRANSIENT_SCRIPTS));
         return new \WP_REST_Response(['js' => $response], 200);
     }
 
@@ -123,18 +123,18 @@ class RestController
      */
     public function getPrimaryMenu()
     {
-        $response = json_encode(self::getAndOrSetRSFRTransient());
+        $response = json_encode(self::getAndOrSetRSFRTransient(Config::RSFR_TRANSIENT_MENU));
         return new \WP_REST_Response(['menu' => $response], 200);
     }
 
-    public static function getAndOrSetRSFRTransient()
+    public static function getAndOrSetRSFRTransient($transientName)
     {
-        $transient = get_transient(Config::RSFR_TRANSIENT_MENU);
+        $transient = get_transient($transientName);
 
         if ($transient === false) {
             $url = get_site_url(null, '/betting/');
             $temp = file_get_contents($url);
-            $transient = get_transient(Config::RSFR_TRANSIENT_MENU);
+            $transient = get_transient($transientName);
         }
         return $transient;
     }
