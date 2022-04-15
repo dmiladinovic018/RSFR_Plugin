@@ -28,12 +28,12 @@ In plugin-boiler-plate.php
  Plugin Name: BC Plugin Boiler Plate  
  Description: BC WP Plugin Starter Kit for Developers.  
  
- define('BC_PLUGIN_BOILER_PLATE_VERSION', '1.0.0');  
+ define('RSFR_ENDPOINT_VERSION', '1.0.0');  
  
- define('BC_PLUGIN_BOILER_PLATE_DIR', __DIR__);
- define('BC_PLUGIN_BOILER_PLATE_URL', \plugin_dir_url(__FILE__));  
- define('BC_PLUGIN_BOILER_PLATE_FILE', __FILE__);  
- define('BC_PLUGIN_BOILER_PLATE_IS_DEV_ENV', __FILE__);  
+ define('RSFR_ENDPOINT_DIR', __DIR__);
+ define('RSFR_ENDPOINT_URL', \plugin_dir_url(__FILE__));  
+ define('RSFR_ENDPOINT_FILE', __FILE__);  
+ define('RSFR_ENDPOINT_IS_DEV_ENV', __FILE__);  
  BoilerPlate::getInstance();
 ```  
     
